@@ -237,3 +237,244 @@ except IndexError:
 | **Examples**           | FileNotFoundError, KeyError       | ZeroDivisionError, ValueError       |
 
 ---
+Here's a comprehensive guide to **Tkinter in Python**, complete with explanations, code examples, and key concepts. This is suitable for students and ready to upload to GitHub.
+
+---
+
+# **Tkinter: A Complete Guide to GUI Programming in Python**
+
+---
+
+## **What is Tkinter?**
+
+**Tkinter** is Python's standard library for creating **Graphical User Interfaces (GUIs)**. It is lightweight, easy to use, and comes pre-installed with Python.
+
+---
+
+## **Why Use Tkinter?**
+
+1. **Easy to Learn**: Beginner-friendly and intuitive.
+2. **Cross-Platform**: Works on Windows, macOS, and Linux.
+3. **Built-in**: No additional installation required.
+4. **Rich Widgets**: Offers a variety of widgets like buttons, labels, entry boxes, etc.
+
+---
+
+## **Basic Structure of a Tkinter Program**
+
+```python
+import tkinter as tk  # Import Tkinter library
+
+# Create the main application window
+root = tk.Tk()
+
+# Set title and size of the window
+root.title("My Tkinter App")
+root.geometry("400x300")
+
+# Run the application
+root.mainloop()
+```
+
+---
+
+## **Widgets in Tkinter**
+
+### 1. **Label**
+Displays static text or images.
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Label Example")
+
+label = tk.Label(root, text="Hello, Tkinter!", font=("Arial", 20))
+label.pack()
+
+root.mainloop()
+```
+
+---
+
+### 2. **Button**
+Triggers a function when clicked.
+
+```python
+import tkinter as tk
+
+def on_click():
+    print("Button clicked!")
+
+root = tk.Tk()
+root.title("Button Example")
+
+button = tk.Button(root, text="Click Me", command=on_click, font=("Arial", 16))
+button.pack()
+
+root.mainloop()
+```
+
+---
+
+### 3. **Entry**
+Creates an input field.
+
+```python
+import tkinter as tk
+
+def get_input():
+    print(entry.get())
+
+root = tk.Tk()
+root.title("Entry Example")
+
+entry = tk.Entry(root, font=("Arial", 14))
+entry.pack()
+
+button = tk.Button(root, text="Submit", command=get_input)
+button.pack()
+
+root.mainloop()
+```
+
+---
+
+### 4. **Text**
+Allows multiline text input.
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Text Example")
+
+text = tk.Text(root, height=10, width=40)
+text.pack()
+
+root.mainloop()
+```
+
+---
+
+### 5. **Checkbutton**
+Allows selection of multiple options.
+
+```python
+import tkinter as tk
+
+def show_selection():
+    print(f"Option 1: {var1.get()}, Option 2: {var2.get()}")
+
+root = tk.Tk()
+root.title("Checkbutton Example")
+
+var1 = tk.IntVar()
+var2 = tk.IntVar()
+
+check1 = tk.Checkbutton(root, text="Option 1", variable=var1)
+check1.pack()
+
+check2 = tk.Checkbutton(root, text="Option 2", variable=var2)
+check2.pack()
+
+button = tk.Button(root, text="Submit", command=show_selection)
+button.pack()
+
+root.mainloop()
+```
+
+---
+
+### 6. **Radiobutton**
+Allows selection of one option from a group.
+
+```python
+import tkinter as tk
+
+def show_choice():
+    print(f"Selected option: {choice.get()}")
+
+root = tk.Tk()
+root.title("Radiobutton Example")
+
+choice = tk.StringVar(value="Option 1")
+
+radio1 = tk.Radiobutton(root, text="Option 1", variable=choice, value="Option 1")
+radio1.pack()
+
+radio2 = tk.Radiobutton(root, text="Option 2", variable=choice, value="Option 2")
+radio2.pack()
+
+button = tk.Button(root, text="Submit", command=show_choice)
+button.pack()
+
+root.mainloop()
+```
+
+---
+
+### 7. **Listbox**
+Displays a list of items.
+
+```python
+import tkinter as tk
+
+def get_selection():
+    selected = listbox.get(tk.ACTIVE)
+    print(f"Selected item: {selected}")
+
+root = tk.Tk()
+root.title("Listbox Example")
+
+listbox = tk.Listbox(root, height=5)
+listbox.insert(1, "Python")
+listbox.insert(2, "Java")
+listbox.insert(3, "C++")
+listbox.insert(4, "JavaScript")
+listbox.pack()
+
+button = tk.Button(root, text="Select", command=get_selection)
+button.pack()
+
+root.mainloop()
+```
+
+---
+
+### 8. **Combobox** (from `ttk` module)
+Dropdown menu for selecting one item.
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+def show_selected():
+    print(f"Selected: {combo.get()}")
+
+root = tk.Tk()
+root.title("Combobox Example")
+
+combo = ttk.Combobox(root, values=["Python", "Java", "C++"])
+combo.set("Select a language")
+combo.pack()
+
+button = tk.Button(root, text="Submit", command=show_selected)
+button.pack()
+
+root.mainloop()
+```
+
+---
+
+
+---
+
+## **Best Practices for Tkinter**
+
+1. Use meaningful widget names for clarity.
+2. Leverage `ttk` widgets for modern styling.
+3. Organize complex GUIs using frames.
+4. Use `mainloop()` only once in the program.
+5. Modularize code by separating widget creation, layout, and logic.
+
