@@ -10,6 +10,7 @@ class Bank:
         self.account_no=Bank.account_number_generator
         self.password = 0
         self.status = False
+        self.login = False
         print("Congrats",self.name,"Account created and your Account number is:",self.account_no)
     def withdraw(self,amount):
         if self.amount-amount>=3000:#allowed
@@ -77,9 +78,12 @@ while True:
                 password = int(input("Set pin:"))
                 obj.password = password
                 obj.status= True
+                obj.login = True
             else:
-                password = int(input("Enter your password:"))
+                if obj.login==False:
+                    password = int(input("Enter your password:"))
                 if password == obj.password:
+                    obj.login = True
                     work = int(input("Press 1 :deposit\nPress 2:Widthdrawal\n3:Check Balance\n4.Reset Password\n5:Exit"))
                     if work==1:
                         
@@ -102,6 +106,7 @@ while True:
                         obj.resetPassword()
                     elif work==5:
                         print("Exiting....")
+                        obj.login = False
                         break
                     else:
                         print("Invalid option")
