@@ -8,6 +8,8 @@ class Bank:
         self.amount=amount
         Bank.account_number_generator+=1
         self.account_no=Bank.account_number_generator
+        self.password = 0
+        self.status = False
         print("Congrats",self.name,"Account created and your Account number is:",self.account_no)
     def withdraw(self,amount):
         if self.amount-amount>=3000:#allowed
@@ -24,6 +26,15 @@ class Bank:
             print("Amount can not be -ve")
     def check_balance(self):
         print("Account number:",self.account_no,"On Name of:",self.name,"Balance:",self.amount)
+    def resetPassword(self):
+        while True:
+            oldpassword = int(input("Enter your old password:"))
+            if oldpassword != self.password:
+                print("Wrong password")
+            else:
+                self.password = int(input(" Enter New Password:"))
+                print("Password reset Successfully")
+                break
 
 #creat menu driven code for bank management
 '''
@@ -62,30 +73,41 @@ while True:
             else:
                 print("Wrong Account Number:")
         while obj:
-            
-                work = int(input("Press 1 :deposit\nPress 2:Widthdrawal\n3:Check Balance\n4:Exit"))
-                if work==1:
-                    
-                    amount = float(input("Enter The amount"))
-                    if amount >0:
-                        obj.deposit(amount)
+            if obj.status == False:
+                password = int(input("Set pin:"))
+                obj.password = password
+                obj.status= True
+            else:
+                password = int(input("Enter your password:"))
+                if password == obj.password:
+                    work = int(input("Press 1 :deposit\nPress 2:Widthdrawal\n3:Check Balance\n4.Reset Password\n5:Exit"))
+                    if work==1:
+                        
+                        amount = float(input("Enter The amount"))
+                        if amount >0:
+                            obj.deposit(amount)
+                        else:
+                            print("You cannot deposit negative amount")
+    
+                    elif work == 2:
+                        
+                        amount = float(input("Enter The withdrawal"))
+                        if amount > 0:
+                            obj.withdraw(amount)
+                        else:
+                            print("You cannot Withdraw negative amount")
+                    elif work == 3:
+                        obj.check_balance()
+                    elif work == 4:
+                        obj.resetPassword()
+                    elif work==5:
+                        print("Exiting....")
+                        break
                     else:
-                        print("You cannot deposit negative amount")
-
-                elif work == 2:
-                    
-                    amount = float(input("Enter The withdrawal"))
-                    if amount > 0:
-                        obj.withdraw(amount)
-                    else:
-                        print("You cannot Withdraw negative amount")
-                elif work == 3:
-                    obj.check_balance()
-                elif work==4:
-                    print("Exiting....")
-                    break
+                        print("Invalid option")
                 else:
-                    print("Invalid option")
+                    print("Wrong password")
+                
 
 
     elif ch==3:
