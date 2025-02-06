@@ -154,24 +154,6 @@ try:
 except RuntimeError as e:
     print(f"Runtime error: {e}")
 ```
-
----
-
-## **Using `assert` for Error Checking**
-
-The `assert` statement is used to debug by testing conditions.
-
-```python
-def divide(a, b):
-    assert b != 0, "Divider cannot be zero!"
-    return a / b
-
-try:
-    print(divide(10, 0))
-except AssertionError as e:
-    print(e)
-```
-
 ---
 
 ## **Best Practices for Exception Handling**
