@@ -1,3 +1,4 @@
+```python
 class Ltc:
     acNo=2025000
     def __init__(self, name , phone , age,amount):
@@ -115,7 +116,7 @@ else:
         
         
         
-        
+```
 
     
     

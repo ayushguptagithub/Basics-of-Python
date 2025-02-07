@@ -1,3 +1,4 @@
+```python
 class LTCE:
     roll = 20250000
     fee = 70000
@@ -28,4 +29,4 @@ press1:To Get Admission
 press2: To 
     """))
         
-        
+    ```
