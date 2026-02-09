@@ -73,7 +73,7 @@ print(jump_search(arr, key))
 
 ---
 
-## 🔍 8. Hashing Search (Using Hash Table)
+## 🔍 4. Hashing Search (Using Hash Table)
 
 ```python
 def hashing_search(arr, key):
