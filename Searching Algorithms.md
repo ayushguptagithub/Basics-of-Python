@@ -1,4 +1,3 @@
----
 ## 🔍 1. Linear Search (Unsorted / Sorted)
 
 ```python
@@ -14,7 +13,7 @@ arr = [10, 40, 20, 50, 30]
 key = 50
 print(linear_search(arr, key))
 ```
----
+
 ## 🔍 2. Binary Search (Sorted Only)
 
 ```python
